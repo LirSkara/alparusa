@@ -15,4 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[MainController::class,'home_page']);
+
+
 Route::get('/add_client',[MainController::class,'add_client']);
+
+
+
+Route::get('/sign_in',[MainController::class,'sign_in']);
