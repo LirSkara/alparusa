@@ -19,7 +19,7 @@ Route::get('/',[MainController::class,'home_page']);
 
 
 Route::get('/add_client',[MainController::class,'add_client']);
-
+Route::get('/about_client',[MainController::class,'about_client']);
 
 
 
