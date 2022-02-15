@@ -15,24 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[MainController::class,'home_page']);
-
-
+Route::get('/',[MainController::class,'home_page'])->name('home');
 Route::get('/add_client',[MainController::class,'add_client']);
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/reg_user', [AuthController::class, 'reg_user']);
+Route::post('/sign', [AuthController::class, 'sign']);
 
-
-
-
-
-// Регистрация и авторизация start 
-Route::middleware('auth')->group(function () {
+// Только авторизованные проходят через эти роуты middleware.
+Route::middleware('guest')->group(function () {
     Route::get('/exit', [AuthController::class, 'exit']);
 });
-
-Route::middleware('guest')->group(function () {
-    Route::get('/login', [AuthController::class, 'login'])->name('login');
-    Route::post('/login', [AuthController::class, 'login_process']);
-    Route::get('/register', [AuthController::class, 'register']);
-    Route::post('/register', [AuthController::class, 'register_process']);
-});
-// Регистрация и авторизация end
+//  end
