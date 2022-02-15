@@ -1,34 +1,32 @@
 @extends('layout')
 @section('content')
+    <form class="container text-center">
+    @if($errors->any())
+    @foreach($errors->all as $error)
+        {{$error}}
+    @endforeach
+@endif
+    @csrf
+    <main class="form-signin">
+  <form>
+    <img class="mb-4" src="http://www.scarletsails-derbent.ru/front/images/bg/logo.svg" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Клиенты</h1>
 
-
-<form class="container text-center">
-    <div class="text-center mb-4">
-      <img class="mb-4" src="/Downloads/Aлые паруса вариант 2.jpg" alt="logo bootstrap" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Клиенты</h1>
+    <div class="form-floating mb-3">
+      <input type="tel" class="form-control" id="tel" placeholder="Номер телефона">
+      <label for="tel">Почта</label>
     </div>
-    
-    <button class="btn btn-lg btn-danger btn-block" type="submit" name="come">Добавить</button>
-    <div class="row">4444</div>
-    <div class="row"></div>
-    <div class="row"></div>
-    <div class="row"></div>
-
-
-
-
-
-
-    <div class="form-label-group mb-3">
-      <label for="tel">Телефон: </label>
-      <input type="tel" name="tel" id="tel" placeholder="Телефон" required="">
+    <div class="form-floating">
+      <input type="password" class="form-control" id="password" placeholder="Пароль">
+      <label for="password">Пароль</label>
     </div>
-  
-    <div class="form-label-group mb-3">
-        <label for="password">Пароль: </label>
-        <input type="password" name="password" id="password" placeholder="Пароль" required="">
+
+    <div class="checkbox mb-3">
     </div>
+    <button class="w-100 btn btn-lg btn-danger" type="submit">Добавить</button>
+  </form>
+</main>
 
   </form>
-
+</form>
 @endsection 

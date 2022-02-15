@@ -12,31 +12,33 @@
     @endforeach
 @endif
     @csrf
-    <div class="text-center mb-4">
-      <img class="mb-4" src="/Downloads/Aлые паруса вариант 2.jpg" alt="logo bootstrap" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">АЛЫЕ ПАРУСА</h1>
-      <h1 class="h3 mb-3 font-weight-normal">Регистрация</h1>
+    <main class="form-signin">
+  <form>
+    <img class="mb-4" src="http://www.scarletsails-derbent.ru/front/images/bg/logo.svg" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Создать аккаунт</h1>
+
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" id="email" placeholder="name@example.com">
+      <label for="email">Почта</label>
     </div>
 
-    <div class="form-label-group mb-3">
-      <label for="email">Email: </label>
-      <input type="email" name="email" id="email" placeholder="Email" required="">
-    </div>
-  
-    <div class="form-label-group mb-3">
-        <label for="password">Пароль: </label>
-        <input type="password" name="password" id="password" placeholder="Пароль" required="">
+    <div class="form-floating mb-3">
+      <input type="password" class="form-control" id="password" placeholder="Пароль">
+      <label for="password">Пароль</label>
     </div>
 
-    <div class="form-label-group mb-3">
-        <label for="password2">Повторите пароль: </label>
-        <input type="password" name="password2" id="password2" placeholder="Повторите пароль" required="">
+    <div class="form-floating">
+      <input type="password2" class="form-control" id="password2" placeholder="Повторить пароль">
+      <label for="password2">Повторить пароль</label>
     </div>
 
-    <button class="btn btn-lg btn-danger btn-block" type="submit" name="come">Далее</button>
+    <div class="checkbox mb-3">
+    </div>
+    <button class="w-100 btn btn-lg btn-danger" type="submit">Зарегистрироваться</button>
   </form>
+</main>
    
-  
+  </form>
 
   
 
