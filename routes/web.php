@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,17 @@ Route::get('/add_client',[MainController::class,'add_client']);
 
 
 
-Route::get('/sign_in',[MainController::class,'sign_in']);
+
+
+// Регистрация и авторизация start 
+Route::middleware('auth')->group(function () {
+    Route::get('/exit', [AuthController::class, 'exit']);
+});
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login', [AuthController::class, 'login_process']);
+    Route::get('/register', [AuthController::class, 'register']);
+    Route::post('/register', [AuthController::class, 'register_process']);
+});
+// Регистрация и авторизация end

@@ -12,7 +12,5 @@ class MainController extends Controller
     public function add_client(){
         return view('add_client');
     }
-    public function sign_in(){
-        return view('sign_in');
-    }
+
 }
