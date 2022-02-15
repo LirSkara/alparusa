@@ -2,55 +2,50 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function register(){
-        return view('register');
-    }
-    public function register_process(Request $request)
+   public function reg_user(Request $request)
     {
         $data = $request->validate([
-            'email' => ['required', 'email', 'string', 'unique:users,email'],
-            'password' => ['required', 'confirmed'],
-            'password2' => ['required', 'confirmed']
+            'tel' => ['required', 'string', 'unique:users,tel'],
+            'password' => ['required', 'confirmed']
         ]);
-    
+
         $user = User::create([
-            'email' => $data['email'],
+            'tel' => $data['tel'],
             'password' => bcrypt($data['password']),
-            'password2' => bcrypt($data['password2']),
         ]);
-    
+
         if ($user) {
             auth('web')->login($user);
         }
-    
-        return redirect()->route('home');
+
+        return redirect()->route('login');
     }
 
     public function login(){
         return view('login');
     }
-    public function login_process(Request $request)
-{
-    $data = $request->validate([
-        'email' => ['required', 'email', 'string'],
-        'password' => ['required']
-    ]);
-
-    if (auth('web')->attempt($data)) {
-        return redirect()->route('home');
-    } else {
-        return redirect()->route('login')->withErrors([
-            'email' => 'Emial или пароль введены неверно!'
-        ]);
+    public function register(){
+        return view('register');
     }
-}
-    public function exit()
+
+    public function sign(Request $request)
     {
-        auth('web')->logout();
-        return redirect()->route('home');
+        $data = $request->validate([
+            'tel' => ['required', 'string'],
+            'password' => ['required']
+        ]);
+
+        if (auth('web')->attempt($data)) {
+            return redirect()->route('home');
+        } else {
+            return redirect()->route('login')->withErrors([
+                'tel' => 'Телефон или пароль введены неверно!'
+            ]);
+        }
     }
 }

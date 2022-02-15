@@ -1,43 +1,36 @@
 @extends('layout')
 @section('title') Регистрация @endsection
 @section('content')
-
-
-{{-- Добавление клиентов --}}
-
-<form class="container text-center">
-    @if($errors->any())
-    @foreach($errors->all as $error)
-        {{$error}}
-    @endforeach
-@endif
-    @csrf
-    <div class="text-center mb-4">
-      <img class="mb-4" src="/Downloads/Aлые паруса вариант 2.jpg" alt="logo bootstrap" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">АЛЫЕ ПАРУСА</h1>
-      <h1 class="h3 mb-3 font-weight-normal">Регистрация</h1>
-    </div>
-
-    <div class="form-label-group mb-3">
-      <label for="email">Email: </label>
-      <input type="email" name="email" id="email" placeholder="Email" required="">
-    </div>
-  
-    <div class="form-label-group mb-3">
-        <label for="password">Пароль: </label>
-        <input type="password" name="password" id="password" placeholder="Пароль" required="">
-    </div>
-
-    <div class="form-label-group mb-3">
-        <label for="password2">Повторите пароль: </label>
-        <input type="password" name="password2" id="password2" placeholder="Повторите пароль" required="">
-    </div>
-
-    <button class="btn btn-lg btn-danger btn-block" type="submit" name="come">Далее</button>
-  </form>
-   
-  
-
-  
-
+ <div class="container mt-3 pt-md-1">
+        <div class="col-md-10 mx-auto col-lg-5 mt-2">
+            <div class="container text-center justify-content-center ">
+              <img src="/public/img/main.jfif" alt="loading..." width="70%">
+                <h2 class="text-center" style="font-weight: 600">Алые Паруса</h2>
+            </div>
+            <form action="/reg_user" method="post" class="p-4 p-md-5 mt-2">
+                @csrf
+                @if($errors->any())
+                    @foreach($errors->all() as $error)
+                        {{$error}}
+                    @endforeach
+                @endif
+              <div class="form-floating mb-3">
+                <input type="tel" name="tel" class="form-control bg-light" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Введите телефон</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" name="password" class="form-control bg-light" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Пароль</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" name="password_confirmation" class="form-control bg-light" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Повторите пароль</label>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button class="w-75 btn btn-lg btn-danger" type="submit">Зарегистрироваться</button>
+              </div>
+              <div class="d-flex justify-content-center mt-2"><a href="/login" class="w-50 ms-3 btn btn-lg me-3" type="submit">Назад</a></div>
+            </form>
+          </div>
+    </div>  
 @endsection 
