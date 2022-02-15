@@ -13,7 +13,7 @@
 @endif
     @csrf
     <div class="text-center mb-4">
-      <img class="mb-4" src="/Downloads/Aлые паруса вариант 2.jpg" alt="logo bootstrap" width="72" height="72">
+      <img class="mb-4" src="http://www.scarletsails-derbent.ru/front/images/bg/logo.svg" alt="logo bootstrap" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">АЛЫЕ ПАРУСА</h1>
     </div>
 
@@ -29,9 +29,4 @@
 
     <button class="btn btn-lg btn-danger btn-block" type="submit" name="come">Войти</button>
   </form>
-   
-  
-
-  
-
 @endsection 

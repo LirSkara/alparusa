@@ -2,33 +2,22 @@
 @section('content')
 
 
-<form class="container text-center">
+<div class="container text-center">
     <div class="text-center mb-4">
-      <img class="mb-4" src="/Downloads/Aлые паруса вариант 2.jpg" alt="logo bootstrap" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Клиенты</h1>
+      <img src="/img/main.jfif" alt="logo bootstrap" width="200">
+      <h2 class="mb-3" style="font-weight: 600;">Клиенты</h2>
     </div>
     
-    <button class="btn btn-lg btn-danger btn-block" type="submit" name="come">Добавить</button>
-    <div class="row">4444</div>
-    <div class="row"></div>
-    <div class="row"></div>
-    <div class="row"></div>
+    <a href="/add_client" class="btn btn-lg btn-danger btn-block w-100 mb-3" type="submit" name="come">Добавить</a>
 
+    <div class="row mx-1">
 
+      <div class="col bg-light rounded-3 shadow-sm pt-2 pb-1 px-3">
+            
+      </div>
 
-
-
-
-    <div class="form-label-group mb-3">
-      <label for="tel">Телефон: </label>
-      <input type="tel" name="tel" id="tel" placeholder="Телефон" required="">
     </div>
-  
-    <div class="form-label-group mb-3">
-        <label for="password">Пароль: </label>
-        <input type="password" name="password" id="password" placeholder="Пароль" required="">
-    </div>
-
-  </form>
+    
+</div>
 
 @endsection 
