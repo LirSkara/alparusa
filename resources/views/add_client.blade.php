@@ -1,47 +1,59 @@
 @extends('layout')
 @section('content')
 
+<div class="container text-center">
 
-{{-- Добавление клиентов --}}
-
-<form class="container text-center">
-    @if($errors->any())
-    @foreach($errors->all as $error)
-        {{$error}}
-    @endforeach
-@endif
-    @csrf
     <div class="text-center mb-4">
-      <img class="mb-4" src="/Downloads/Aлые паруса вариант 2.jpg" alt="logo bootstrap" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Добавление клиентов</h1>
+      <img src="img/main.jfif" alt="logo bootstrap" width="200">
+      <h2 class="mb-3" style="font-weight: 600;">Добавить клиента</h2>
     </div>
 
-    <div class="form-label-group mb-3">
-      <label for="firstName">Имя: </label>
-      <input type="text" name="firstName" id="firstName" placeholder="Имя" required="">
-    </div>
-  
-    <div class="form-label-group mb-3">
-        <label for="lastName">Фамилия: </label>
-        <input type="text" name="lastName" id="lastName" placeholder="Фамилия" required="">
-    </div>
+    <form action="/add_client" method="POST" enctype="multipart/form-data">
+    @csrf
 
-    <div class="form-label-group mb-3">
-        <label for="fatherName">Отчество: </label>
-        <input type="text" name="fatherName" id="fatherName" placeholder="Отчество" required="">
-    </div>
+        <div class="form-floating mb-3">
+            <input type="text" name="firstname" class="form-control" id="floatingInput" placeholder="Имя">
+            <label for="floatingInput">Имя</label>
+            @if($errors->has('firstname'))
+                {{$errors->first('firstname')}}
+            @endif
+        </div>
+    
+        <div class="form-floating mb-3">
+            <input type="text" name="lastname" class="form-control" id="floatingInput" placeholder="Имя">
+            <label for="floatingInput">Фамилия</label>
+            @if($errors->has('lastname'))
+                {{$errors->first('lastname')}}
+            @endif
+        </div>
 
-    <div class="form-label-group mb-3">
-        <label for="date">Дата рождения: </label>
-        <input type="date" name="data" id="data" placeholder="Дата рождения" required="">
-    </div>
+        <div class="form-floating mb-3">
+            <input type="text" name="fathername" class="form-control" id="floatingInput" placeholder="Имя">
+            <label for="floatingInput">Отчество</label>
+            @if($errors->has('fathername'))
+                {{$errors->first('fathername')}}
+            @endif
+        </div>
 
-    <div class="form-label-group mb-3">
-        <input type="file" name="file" id="file" placeholder="Файл" required="">
-    </div>
+        <div class="form-floating mb-3">
+            <input type="date" name="data" class="form-control" id="floatingInput" placeholder="Имя">
+            <label for="floatingInput">Дата рождения</label>
+            @if($errors->has('data'))
+                {{$errors->first('data')}}
+            @endif
+        </div>
 
-    <button class="btn btn-lg btn-danger btn-block" type="submit" name="add_client">Добавить</button>
-  </form>
+        <div class="form-label-group mb-3">
+            <input type="file" class="form-control" name="file" id="file" placeholder="Файл" required="">
+            @if($errors->has('file'))
+                {{$errors->first('file')}}
+            @endif
+        </div>
+
+        <button class="btn btn-lg btn-danger btn-block w-100" type="submit" name="add_client">Добавить</button>
+
+    </form>
+  </div>
    
 
   
