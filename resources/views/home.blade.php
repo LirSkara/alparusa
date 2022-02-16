@@ -9,9 +9,6 @@
     @csrf
     <main class="form-signin">
   <form>
-    <img class="mb-4" src="http://www.scarletsails-derbent.ru/front/images/bg/logo.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Клиенты</h1>
-
 <div class="container text-center">
     <div class="text-center mb-4">
       <img src="/img/main.jfif" alt="logo bootstrap" width="200">
