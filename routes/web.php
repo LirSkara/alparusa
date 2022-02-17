@@ -10,6 +10,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/add_client', [MainController::class, 'add_client_post']);
     Route::get('/about_client/{id}', [MainController::class, 'about_client'])->name('about_client');
     Route::get('/exit',[AuthController::class, 'exit']);
+    Route::get('/edit/{id}',[MainController::class, 'edit']);
+    Route::post('/edit/{id}',[MainController::class, 'edit_client']);
+    Route::get('/delete/{id}',[MainController::class, 'delete_client']);
 });
 
 Route::middleware('guest')->group(function () {
