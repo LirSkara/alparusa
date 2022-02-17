@@ -17,13 +17,18 @@ class MainController extends Controller
         return view('add_client');
     }
 
+    public function about_client($id){
+        $client = ClientsModel::find($id);
+        return view('about_client', ['client' => $client]);
+    }
+
     public function add_client_post(Request $data){
         $valid = $data->validate([
             'firstname' => ['required'],
             'lastname' => ['required'],
             'fathername' => ['required'],
             'data' => ['required'],
-            'file' => ['required', 'image']
+            'file' => ['required']
          ]);
          
         $clients = new ClientsModel();
@@ -42,6 +47,42 @@ class MainController extends Controller
         $clients->save();
 
         return redirect()->route('home');
+    }
+
+    public function delete_client($id){
+        ClientsModel::find($id)->delete();
+        return redirect()->route('home');
+    }
+
+    public function edit($id){
+        $client = ClientsModel::find($id);
+        return view('edit', ['client' => $client]);
+    }
+
+    public function edit_client($id, Request $data){
+        $valid = $data->validate([
+            'firstname' => ['required'],
+            'lastname' => ['required'],
+            'fathername' => ['required'],
+            'data' => ['required'],
+            'file' => ['required']
+        ]);
+
+        $client = ClientsModel::find($id);
+        $client->firstname = $data->input('firstname');
+        $client->lastname = $data->input('lastname');
+        $client->fathername = $data->input('fathername');
+        $client->data = $data->input('data');
+
+         $file = $data->file('file');
+         $upload_folder = 'public/file'; //Создается автоматически
+         $filename = $file->getClientOriginalName(); //Сохраняем исходное название изображения
+         Storage::putFileAs($upload_folder, $file, $filename);
+ 
+         $client->file = $filename;
+         $client->save();
+
+        return redirect()->route('about_client', $id);
     }
 
 }

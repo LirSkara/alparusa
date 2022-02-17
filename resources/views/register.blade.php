@@ -27,12 +27,12 @@
         <input type="password" name="password_confirmation" class="form-control" id="floatingInput" placeholder="Имя">
         <label for="floatingInput">Повторите пароль</label>
         @error('password_confirmation')<div class="text-danger">{{$message}}</div>@enderror
-
       </div>
 
-      <button class="btn btn-lg btn-danger btn-block w-100" type="submit" name="come">Войти</button>
+      <button class="btn btn-lg btn-danger btn-block w-100" type="submit" name="come">Зарегистрироваться</button>
 
     </form>
     
 </div>
-@endsection 
+
+@endsection
